@@ -49,7 +49,6 @@ clearBtn.addEventListener('click', clearCalc);
 function clearCalc() {
   lowerString = '0';
   upperString = '';
-  magic = false;
   renderCalc();
 }
 
@@ -233,14 +232,20 @@ function equal() {
 }
 
 // Press and hold function
-const magicBtn = document.querySelector('.magic-btn');
-magicBtn.addEventListener('click', magicFunction);
+const magicBtn = document.querySelector('.magic-btn-one');
+magicBtn.addEventListener('click', setMagicNumber);
+
+const secondMagicBtn = document.querySelector('.magic-btn-two');
+secondMagicBtn.addEventListener('click', setMagic);
 
 let magic = false;
 let magicNumber = null;
 
-function magicFunction() {
-  magicNumber = +prompt('What will the answer be?');
+function setMagicNumber() {
+  magicNumber = +prompt('What will the number be?');
+}
+
+function setMagic() {
   if (magicNumber) {
     if (typeof (magicNumber === 'number')) {
       magic = true;
