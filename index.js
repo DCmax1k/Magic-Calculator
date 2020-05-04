@@ -74,7 +74,7 @@ addBtn.addEventListener('click', addOperation);
 
 function addOperation() {
   if (upperString) {
-    equal();
+    equal('not');
   }
   if (lowerString) {
     lowerString = lowerString + ' +';
@@ -92,7 +92,7 @@ subtractBtn.addEventListener('click', subtractOperation);
 
 function subtractOperation() {
   if (upperString) {
-    equal();
+    equal('not');
   }
   if (lowerString) {
     lowerString = lowerString + ' -';
@@ -110,7 +110,7 @@ multiplyBtn.addEventListener('click', multiplyOperation);
 
 function multiplyOperation() {
   if (upperString) {
-    equal();
+    equal('not');
   }
   if (lowerString) {
     lowerString = lowerString + ' ×';
@@ -128,7 +128,7 @@ divideBtn.addEventListener('click', divisionOperation);
 
 function divisionOperation() {
   if (upperString) {
-    equal();
+    equal('not');
   }
   if (lowerString) {
     lowerString = lowerString + ' ÷';
@@ -167,7 +167,7 @@ function addPeriod() {
 const equalBtn = document.querySelector('.key-equal');
 equalBtn.addEventListener('click', equal);
 
-function equal() {
+function equal(x) {
   let answer = '';
   if (justAnswered === true) {
     return;
@@ -180,7 +180,7 @@ function equal() {
     if (operation === 'plus') {
       answer = parseFloat(upperString) + parseFloat(lowerString);
       upperString = `${upperString} + ${lowerString} =`;
-      if (magic === true) {
+      if (magic === true && x !== 'not') {
         lowerString = magicNumber;
         justAnswered = true;
         magic = false;
@@ -192,7 +192,7 @@ function equal() {
     if (operation === 'subtract') {
       answer = parseFloat(upperString) - parseFloat(lowerString);
       upperString = `${upperString} - ${lowerString} =`;
-      if (magic === true) {
+      if (magic === true && x !== 'not') {
         lowerString = magicNumber;
         justAnswered = true;
         magic = false;
@@ -204,7 +204,7 @@ function equal() {
     if (operation === 'multiply') {
       answer = parseFloat(upperString) * parseFloat(lowerString);
       upperString = `${upperString} × ${lowerString} =`;
-      if (magic === true) {
+      if (magic === true && x !== 'not') {
         lowerString = magicNumber;
         justAnswered = true;
         magic = false;
@@ -216,7 +216,7 @@ function equal() {
     if (operation === 'divide') {
       answer = parseFloat(upperString) / parseFloat(lowerString);
       upperString = `${upperString} ÷ ${lowerString} =`;
-      if (magic === true) {
+      if (magic === true && x !== 'not') {
         lowerString = magicNumber;
         justAnswered = true;
         magic = false;
@@ -252,7 +252,7 @@ function setMagic() {
       equalBtn.style.color = 'white';
       setTimeout(() => {
         equalBtn.style.color = 'black';
-      }, 100);
+      }, 300);
     }
   }
 }
