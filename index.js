@@ -249,6 +249,10 @@ function setMagic() {
   if (magicNumber) {
     if (typeof (magicNumber === 'number')) {
       magic = true;
+      equalBtn.style.color = 'white';
+      setTimeout(() => {
+        equalBtn.style.color = 'black';
+      }, 100);
     }
   }
 }
