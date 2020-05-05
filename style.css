@@ -145,6 +145,8 @@ body {
   width: 10px;
   border-radius: 50%;
   background-color: transparent;
+  width: 15px;
+  height: 15px;
 }
 
 .magic-btn input {

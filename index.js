@@ -76,7 +76,7 @@ function addOperation() {
   if (upperString) {
     equal('not');
   }
-  if (lowerString) {
+  if (lowerString >= 0) {
     lowerString = lowerString + ' +';
     lowerToUpper();
     operation = 'plus';
@@ -94,7 +94,7 @@ function subtractOperation() {
   if (upperString) {
     equal('not');
   }
-  if (lowerString) {
+  if (lowerString >= 0) {
     lowerString = lowerString + ' -';
     lowerToUpper();
     operation = 'subtract';
@@ -112,7 +112,7 @@ function multiplyOperation() {
   if (upperString) {
     equal('not');
   }
-  if (lowerString) {
+  if (lowerString >= 0) {
     lowerString = lowerString + ' ×';
     lowerToUpper();
     operation = 'multiply';
@@ -127,7 +127,7 @@ const divideBtn = document.querySelector('.key-div');
 divideBtn.addEventListener('click', divisionOperation);
 
 function divisionOperation() {
-  if (upperString) {
+  if (lowerString >= 0) {
     equal('not');
   }
   if (lowerString) {
@@ -172,7 +172,7 @@ function equal(x) {
   if (justAnswered === true) {
     return;
   }
-  if (upperString && lowerString) {
+  if (upperString && lowerString >= 0) {
     upperString = upperString.slice(0, -2);
 
     // Checks to see which operation was used.
